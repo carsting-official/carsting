@@ -188,28 +188,19 @@
     }
 
     .card-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .gateway-card--owner .card-icon {
-      background: rgba(0, 229, 255, 0.1);
-      color: var(--accent-cyan);
-    }
-
-    .gateway-card--company .card-icon {
-      background: rgba(255, 171, 0, 0.1);
-      color: var(--accent-amber);
-    }
-
-    .card-icon svg {
-      width: 28px;
-      height: 28px;
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
     }
 
     .card-title {
@@ -287,14 +278,9 @@
       }
 
       .card-icon {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 10px;
-      }
-
-      .card-icon svg {
-        width: 22px;
-        height: 22px;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 12px;
       }
 
       .card-title {
@@ -336,18 +322,12 @@
       <!-- Owner Card -->
       <a href="owner.html" class="gateway-card gateway-card--owner" id="gateway-owner">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0H9" />
-            <path d="M10 6l-1 5h7" />
-          </svg>
+          <img src="assets/images/gateway_owner.png" alt="オーナー向けアイコン">
         </div>
-        <h2 class="card-title">愛車を貸したい</h2>
-        <p class="card-desc">あなたの愛車をMV・PV・CM撮影に提供して、<br>撮影謝礼を受け取りましょう。</p>
+        <h2 class="card-title">車をお持ちの方</h2>
+        <p class="card-desc">愛車をMV・CMなどの映像作品に提供し、<br>手軽に撮影謝礼を受け取ることができます。</p>
         <span class="card-arrow">
-          オーナー登録へ
+          無料登録へ進む
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
             stroke-linejoin="round">
             <path d="M5 12h14" />
@@ -359,16 +339,12 @@
       <!-- Company Card -->
       <a href="btob.html" class="gateway-card gateway-card--company" id="gateway-company">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M15 10l4.553 -2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1 -1.447 .894L15 14v-4z" />
-            <rect x="3" y="6" width="12" height="12" rx="2" />
-          </svg>
+          <img src="assets/images/gateway_company.png" alt="制作会社向けアイコン">
         </div>
-        <h2 class="card-title">撮影車両を探す</h2>
-        <p class="card-desc">MV・PV・CM撮影に最適な車両を、<br>登録オーナーの中からご提案します。</p>
+        <h2 class="card-title">車をお探しの方</h2>
+        <p class="card-desc">独自の登録オーナーネットワークを利用し、<br>撮影に合わせた理想の一台を手配できます。</p>
         <span class="card-arrow">
-          車をお探しの方はこちら
+          車両手配の相談へ進む
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
             stroke-linejoin="round">
             <path d="M5 12h14" />
