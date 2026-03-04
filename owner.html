@@ -189,10 +189,46 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="car-model">車種・年式<span class="required">*</span></label>
-          <input type="text" class="form-input" id="car-model" name="car_model" placeholder="例：日産 シルビア S15 (2000年式)"
+          <label class="form-label" for="car-model">メーカー・車種・年式<span class="required">*</span></label>
+          <input type="text" class="form-input" id="car-model" name="car_model" placeholder="例：日産 スカイラインGT-R 1999年式"
             required>
           <p class="form-error-msg">車種を入力してください</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="car-genre">車のジャンル<span class="required">*</span></label>
+          <select class="form-input" id="car-genre" name="car_genre" required
+            style="appearance: none; background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E') no-repeat right 16px top 50%; background-size: 12px auto; padding-right: 40px;">
+            <option value="" disabled selected>選択してください</option>
+            <option value="JDM">JDM（国産スポーツカー）</option>
+            <option value="旧車・クラシック">旧車・クラシックカー</option>
+            <option value="スポーツカー">スポーツカー</option>
+            <option value="スーパーカー">スーパーカー</option>
+            <option value="ローライダー・アメ車">ローライダー・アメ車</option>
+            <option value="VIPカー・ラグジュアリー">VIPカー・ラグジュアリー</option>
+            <option value="SUV・クロカン">SUV・クロカン</option>
+            <option value="カスタムカー">カスタムカー・その他改造車</option>
+            <option value="ノーマル車">ノーマル車</option>
+            <option value="その他">その他</option>
+          </select>
+          <p class="form-error-msg">車のジャンルを選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="instagram-id">Instagram ID</label>
+          <input type="text" class="form-input" id="instagram-id" name="instagram_id" placeholder="例：@carsting_japan">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="car-color">ボディカラー</label>
+          <input type="text" class="form-input" id="car-color" name="car_color" placeholder="例：純正ベイサイドブルー、マットブラック全塗装">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="custom-features">カスタム内容・アピールポイント</label>
+          <textarea class="form-input form-textarea" id="custom-features" name="custom_features"
+            placeholder="車高調、左ハンドル、フルストレートマフラー（爆音）など自由に記載"
+            style="resize: vertical; min-height: 100px; padding-top: 14px;"></textarea>
         </div>
 
         <div class="form-group">
