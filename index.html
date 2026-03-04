@@ -8,9 +8,17 @@
   <meta name="description" content="CARSTING - MV・PV撮影用の車両マッチングサービス。カーオーナーと映像制作会社をつなぎます。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --bg-dark: #0a0a0f;
@@ -26,11 +34,13 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
+      padding: 20px;
     }
 
     /* Background animation */
@@ -40,6 +50,7 @@
       z-index: 0;
       overflow: hidden;
     }
+
     .bg-glow::before {
       content: '';
       position: absolute;
@@ -48,12 +59,18 @@
       width: 200%;
       height: 200%;
       background: radial-gradient(ellipse at 30% 50%, rgba(0, 229, 255, 0.06) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 50%, rgba(255, 171, 0, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse at 70% 50%, rgba(255, 171, 0, 0.05) 0%, transparent 60%);
       animation: bgShift 12s ease-in-out infinite alternate;
     }
+
     @keyframes bgShift {
-      0%   { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(2%, -2%) rotate(3deg); }
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(2%, -2%) rotate(3deg);
+      }
     }
 
     /* Gateway container */
@@ -68,14 +85,22 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .gateway-logo {
       width: 180px;
       margin: 0 auto 16px;
     }
+
     .gateway-logo img {
       width: 100%;
       height: auto;
@@ -87,20 +112,20 @@
       letter-spacing: 0.35em;
       color: var(--text-muted);
       text-transform: uppercase;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
 
     .gateway-heading {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       line-height: 1.5;
     }
 
     .gateway-sub {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 48px;
+      margin-bottom: 32px;
     }
 
     /* Cards */
@@ -116,7 +141,7 @@
       background: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 16px;
-      padding: 40px 28px 36px;
+      padding: 28px 20px 28px;
       text-decoration: none;
       color: var(--text-primary);
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -137,6 +162,7 @@
     .gateway-card--owner::before {
       background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
     }
+
     .gateway-card--company::before {
       background: radial-gradient(ellipse at center, rgba(255, 171, 0, 0.08) 0%, transparent 70%);
     }
@@ -145,33 +171,39 @@
       transform: translateY(-6px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
+
     .gateway-card--owner:hover {
       border-color: rgba(0, 229, 255, 0.3);
     }
+
     .gateway-card--company:hover {
       border-color: rgba(255, 171, 0, 0.3);
     }
+
     .gateway-card:hover::before {
       opacity: 1;
     }
 
     .card-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 20px;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 14px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .gateway-card--owner .card-icon {
       background: rgba(0, 229, 255, 0.1);
       color: var(--accent-cyan);
     }
+
     .gateway-card--company .card-icon {
       background: rgba(255, 171, 0, 0.1);
       color: var(--accent-amber);
     }
+
     .card-icon svg {
       width: 28px;
       height: 28px;
@@ -184,11 +216,12 @@
       margin-bottom: 8px;
       letter-spacing: 0.02em;
     }
+
     .card-desc {
       font-size: 0.82rem;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .card-arrow {
@@ -200,10 +233,18 @@
       letter-spacing: 0.05em;
       transition: gap 0.3s ease;
     }
-    .gateway-card--owner .card-arrow { color: var(--accent-cyan); }
-    .gateway-card--company .card-arrow { color: var(--accent-amber); }
 
-    .gateway-card:hover .card-arrow { gap: 12px; }
+    .gateway-card--owner .card-arrow {
+      color: var(--accent-cyan);
+    }
+
+    .gateway-card--company .card-arrow {
+      color: var(--accent-amber);
+    }
+
+    .gateway-card:hover .card-arrow {
+      gap: 12px;
+    }
 
     .card-arrow svg {
       width: 16px;
@@ -212,15 +253,64 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .gateway-cards {
-        flex-direction: column;
-        align-items: center;
+      .gateway-logo {
+        width: 120px;
+        margin-bottom: 8px;
       }
-      .gateway-card {
-        max-width: 100%;
+
+      .gateway-tagline {
+        font-size: 0.65rem;
+        margin-bottom: 16px;
       }
+
       .gateway-heading {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+      }
+
+      .gateway-sub {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+      }
+
+      .gateway-cards {
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .gateway-card {
+        padding: 20px 14px 20px;
+      }
+
+      .card-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+      }
+
+      .card-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .card-title {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .card-desc {
+        font-size: 0.72rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .card-arrow {
+        font-size: 0.7rem;
+      }
+
+      .card-arrow svg {
+        width: 14px;
+        height: 14px;
       }
     }
   </style>
@@ -242,19 +332,22 @@
       <!-- Owner Card -->
       <a href="owner.html" class="gateway-card gateway-card--owner" id="gateway-owner">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-            <path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0H9"/>
-            <path d="M10 6l-1 5h7"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0H9" />
+            <path d="M10 6l-1 5h7" />
           </svg>
         </div>
         <h2 class="card-title">愛車を貸したい</h2>
         <p class="card-desc">あなたの愛車をMV・PV・CM撮影に提供して、<br>撮影謝礼を受け取りましょう。</p>
         <span class="card-arrow">
           オーナー登録へ
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
           </svg>
         </span>
       </a>
@@ -262,17 +355,20 @@
       <!-- Company Card -->
       <a href="btob.html" class="gateway-card gateway-card--company" id="gateway-company">
         <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 10l4.553 -2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1 -1.447 .894L15 14v-4z"/>
-            <rect x="3" y="6" width="12" height="12" rx="2"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M15 10l4.553 -2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1 -1.447 .894L15 14v-4z" />
+            <rect x="3" y="6" width="12" height="12" rx="2" />
           </svg>
         </div>
         <h2 class="card-title">撮影車両を探す</h2>
         <p class="card-desc">MV・PV・CM撮影に最適な車両を、<br>登録オーナーの中からご提案します。</p>
         <span class="card-arrow">
           制作会社の方はこちら
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
           </svg>
         </span>
       </a>
