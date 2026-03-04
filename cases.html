@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用実績・事例紹介 | YAVAY</title>
+    <meta name="description" content="YAVAY経由でマッチングが成立し、実際に撮影されたMV・PV・CMの事例をご紹介します。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Oswald:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Case Studies Page Styles */
+        .cases-hero {
+            padding: 140px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cases-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--accent-gradient);
+        }
+
+        .cases-hero .hero-eyecatch {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .cases-intro {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* Cases Grid */
+        .cases-section {
+            padding: var(--section-padding);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: var(--bg-glass);
+            border: var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color var(--transition-base), transform var(--transition-fast);
+        }
+
+        .case-card:hover {
+            border-color: rgba(0, 229, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .case-thumbnail {
+            aspect-ratio: 16 / 9;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .no-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .no-image-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.3;
+        }
+
+        .no-image-placeholder span {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        .case-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(0, 229, 255, 0.15);
+            border: 2px solid rgba(0, 229, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: background var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .case-card:hover .case-play-icon {
+            background: rgba(0, 229, 255, 0.25);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .case-play-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-cyan);
+            margin-left: 3px;
+        }
+
+        .case-body {
+            padding: 24px;
+        }
+
+        .case-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .case-type {
+            padding: 3px 10px;
+            background: var(--accent-cyan-dim);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            letter-spacing: 0.05em;
+        }
+
+        .case-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .case-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .case-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .case-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .case-tag {
+            padding: 3px 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Coming Soon */
+        .coming-soon-section {
+            padding: 60px 20px 80px;
+            text-align: center;
+        }
+
+        .coming-soon-box {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 48px 28px;
+        }
+
+        .coming-soon-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .coming-soon-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .coming-soon-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: box-shadow var(--transition-base), transform var(--transition-fast);
+        }
+
+        .coming-soon-cta:hover {
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-2px);
+            color: var(--bg-primary);
+        }
+
+        /* Back link */
+        .back-link-wrapper {
+            text-align: center;
+            padding: 0 20px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+        }
+
+        .back-link:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        @media (min-width: 640px) {
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== Header ========== -->
+    <header class="site-header" id="header">
+        <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="YAVAY LOCAL PROJECT"></a>
+        <a href="index.html#cta" class="header-cta">無料エントリー</a>
+    </header>
+
+    <!-- ========== Hero ========== -->
+    <section class="cases-hero">
+        <span class="hero-eyecatch">Case Studies</span>
+        <h1 class="section-title" style="margin-bottom: 20px;">利用実績・事例紹介</h1>
+        <p class="cases-intro">
+            YAVAY経由でマッチングが成立し、実際にMV・PV・CM撮影に使用された車両と作品をご紹介します。
+        </p>
+    </section>
+
+    <!-- ========== Cases Grid ========== -->
+    <section class="cases-section">
+        <div class="container">
+            <div class="cases-grid">
+
+                <!-- Case 1 -->
+                <div class="case-card fade-in" data-delay="0">
+                    <div class="case-thumbnail">
+                        <div class="no-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="2" y1="7" x2="22" y2="7" />
+                                <line x1="2" y1="17" x2="22" y2="17" />
+                            </svg>
+                            <span>No Image</span>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-meta">
+                            <span class="case-type">MV</span>
+                            <span class="case-date">Coming Soon</span>
+                        </div>
+                        <h3 class="case-title">HIP-HOP アーティスト MV撮影</h3>
+                        <p class="case-description">
+                            都内の夜景をバックに、ワイドボディのスポーツカーを使用したストリート感あふれるMV。車両の存在感がアーティストの世界観を引き立てた。
+                        </p>
+                        <div class="case-tags">
+                            <span class="case-tag">スポーツカー</span>
+                            <span class="case-tag">ナイトシーン</span>
+                            <span class="case-tag">東京</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card fade-in" data-delay="1">
+                    <div class="case-thumbnail">
+                        <div class="no-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="2" y1="7" x2="22" y2="7" />
+                                <line x1="2" y1="17" x2="22" y2="17" />
+                            </svg>
+                            <span>No Image</span>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-meta">
+                            <span class="case-type">PV</span>
+                            <span class="case-date">Coming Soon</span>
+                        </div>
+                        <h3 class="case-title">アパレルブランド PV撮影</h3>
+                        <p class="case-description">
+                            ヴィンテージカーを使用した秋のファッションフィルム。クラシックカーの持つ上品なオーラが、ブランドの世界観と見事にマッチ。
+                        </p>
+                        <div class="case-tags">
+                            <span class="case-tag">旧車</span>
+                            <span class="case-tag">ファッション</span>
+                            <span class="case-tag">ロケーション撮影</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card fade-in" data-delay="2">
+                    <div class="case-thumbnail">
+                        <div class="no-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="2" y1="7" x2="22" y2="7" />
+                                <line x1="2" y1="17" x2="22" y2="17" />
+                            </svg>
+                            <span>No Image</span>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-meta">
+                            <span class="case-type">MV</span>
+                            <span class="case-date">Coming Soon</span>
+                        </div>
+                        <h3 class="case-title">R&Bシンガー MV撮影</h3>
+                        <p class="case-description">
+                            海沿いのサンセットをバックに、オープンカーでのドライブシーンを撮影。開放感のある映像が楽曲の雰囲気にぴったりだった。
+                        </p>
+                        <div class="case-tags">
+                            <span class="case-tag">オープンカー</span>
+                            <span class="case-tag">海辺</span>
+                            <span class="case-tag">サンセット</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="case-card fade-in" data-delay="3">
+                    <div class="case-thumbnail">
+                        <div class="no-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="2" y1="7" x2="22" y2="7" />
+                                <line x1="2" y1="17" x2="22" y2="17" />
+                            </svg>
+                            <span>No Image</span>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-meta">
+                            <span class="case-type">CM</span>
+                            <span class="case-date">Coming Soon</span>
+                        </div>
+                        <h3 class="case-title">カーケア用品 CM撮影</h3>
+                        <p class="case-description">
+                            磨き上げられたJDMスポーツカーを使用したカーコーティング商品のCM。車の質感と光沢の美しさが製品の効果を最大限にアピール。
+                        </p>
+                        <div class="case-tags">
+                            <span class="case-tag">JDM</span>
+                            <span class="case-tag">スタジオ撮影</span>
+                            <span class="case-tag">商品PR</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Coming Soon ========== -->
+    <section class="coming-soon-section">
+        <div class="coming-soon-box fade-in">
+            <h3>実績は随時追加予定</h3>
+            <p>サービスローンチ後、実際の撮影事例を<br>写真・映像付きでご紹介してまいります。</p>
+            <a href="index.html#cta" class="coming-soon-cta">
+                オーナー登録はこちら
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== Back ========== -->
+    <div class="back-link-wrapper">
+        <a href="btob.html" class="back-link">← 制作会社向けページへ</a>
+    </div>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-logo"><img src="assets/images/logo.png" alt="YAVAY"></div>
+            <nav class="footer-links">
+                <a href="index.html">オーナー登録</a>
+                <a href="btob.html">制作会社の方</a>
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="tokushou.html">特商法表記</a>
+            </nav>
+            <p class="footer-copy">&copy; 2026 YAVAY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

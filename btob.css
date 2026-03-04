@@ -1,0 +1,379 @@
+/* ================================================
+   YAVAY - BtoB LP Specific Styles
+   ================================================ */
+
+/* ---------- BtoB Hero ---------- */
+.btob-hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 20px 60px;
+}
+
+.btob-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.btob-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    filter: brightness(0.5) saturate(0.8);
+}
+
+.btob-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 15, 0.5) 0%,
+            rgba(10, 10, 15, 0.2) 30%,
+            rgba(10, 10, 15, 0.7) 60%,
+            rgba(10, 10, 15, 0.98) 85%,
+            rgba(10, 10, 15, 1) 100%);
+}
+
+.btob-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* ---------- Problem Section ---------- */
+.btob-problem {
+    padding: var(--section-padding);
+    text-align: center;
+    position: relative;
+}
+
+.btob-problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--accent-gradient);
+}
+
+.problem-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 700px;
+    margin: 40px auto 32px;
+}
+
+.problem-item {
+    background: var(--bg-glass);
+    border: var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.problem-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(0, 229, 255, 0.06);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.1);
+}
+
+.problem-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--accent-cyan);
+}
+
+.problem-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.problem-solution {
+    margin-top: 32px;
+    font-size: 1rem;
+    color: var(--accent-cyan);
+    line-height: 1.8;
+}
+
+.problem-solution strong {
+    font-weight: 700;
+}
+
+/* ---------- Vehicle Gallery ---------- */
+.btob-gallery {
+    padding: var(--section-padding);
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.btob-gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.gallery-card {
+    background: var(--bg-glass);
+    border: var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-base), transform var(--transition-fast);
+}
+
+.gallery-card:hover {
+    border-color: rgba(0, 229, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.gallery-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-image img {
+    transform: scale(1.05);
+}
+
+.gallery-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 12px;
+    background: rgba(0, 229, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 0.05em;
+}
+
+.gallery-info {
+    padding: 16px 20px 20px;
+}
+
+.gallery-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.gallery-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.gallery-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--accent-amber-dim);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    color: var(--accent-amber);
+    font-weight: 600;
+}
+
+.gallery-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 24px;
+}
+
+/* ---------- Pricing ---------- */
+.btob-pricing {
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--bg-glass);
+    border: var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+}
+
+.pricing-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card.highlight-card {
+    border-color: rgba(0, 229, 255, 0.25);
+    position: relative;
+}
+
+.pricing-card.highlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, rgba(0, 229, 255, 0.04), transparent 70%);
+    pointer-events: none;
+}
+
+.pricing-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.pricing-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.pricing-amount {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.highlight-card .pricing-amount {
+    color: var(--accent-cyan);
+}
+
+.pricing-amount span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+.pricing-details {
+    padding: 20px 24px 24px;
+    list-style: none;
+}
+
+.pricing-details li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.pricing-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* ---------- BtoB Flow ---------- */
+.btob-flow {
+    padding: var(--section-padding);
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.btob-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+}
+
+/* ---------- BtoB Contact ---------- */
+.btob-contact {
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btob-contact::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.06), transparent 60%);
+    pointer-events: none;
+}
+
+.btob-contact textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .problem-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .btob-hero {
+        align-items: center;
+        padding-bottom: 0;
+    }
+}
