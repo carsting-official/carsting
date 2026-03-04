@@ -210,6 +210,8 @@
       font-weight: 700;
       margin-bottom: 8px;
       letter-spacing: 0.02em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     .card-desc {
@@ -218,6 +220,8 @@
       line-height: 1.7;
       margin-bottom: 16px;
       flex-grow: 1;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     .card-arrow {
@@ -326,7 +330,10 @@
           <img src="assets/images/gateway_owner.png" alt="オーナー向けアイコン">
         </div>
         <h2 class="card-title">車をお持ちの方</h2>
-        <p class="card-desc">愛車をMV・CMなどの映像作品に提供し、<br>手軽に撮影謝礼を受け取ることができます。</p>
+        <p class="card-desc">
+          <span style="display:inline-block;">愛車をMV・CMなどの</span><span style="display:inline-block;">映像作品に提供し、</span><br>
+          <span style="display:inline-block;">手軽に撮影謝礼を</span><span style="display:inline-block;">受け取ることができます。</span>
+        </p>
         <span class="card-arrow">
           無料登録へ進む
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
@@ -343,7 +350,10 @@
           <img src="assets/images/gateway_company.png" alt="制作会社向けアイコン">
         </div>
         <h2 class="card-title">車をお探しの方</h2>
-        <p class="card-desc">独自の登録オーナーネットワークを利用し、<br>撮影に合わせた理想の一台を手配できます。</p>
+        <p class="card-desc">
+          <span style="display:inline-block;">独自のオーナーネットワークを</span><span style="display:inline-block;">利用し、</span><br>
+          <span style="display:inline-block;">撮影に合わせた</span><span style="display:inline-block;">理想の一台を手配できます。</span>
+        </p>
         <span class="card-arrow">
           車両手配の相談へ進む
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
