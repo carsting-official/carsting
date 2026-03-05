@@ -198,6 +198,7 @@ a:hover {
   letter-spacing: 0.05em;
   transition: box-shadow var(--transition-base), transform var(--transition-fast);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .header-cta:hover {
@@ -220,6 +221,7 @@ a:hover {
   font-weight: 600;
   color: var(--text-muted);
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 
@@ -1019,6 +1021,14 @@ a:hover {
 
 .modal-close-btn:hover {
   box-shadow: var(--glow-cyan);
+}
+
+/* ---------- Responsive (Mobile < 640px adjustments) ---------- */
+@media (max-width: 639px) {
+  .header-nav {
+    display: none;
+    /* Hide top nav links on small screens to prevent squishing */
+  }
 }
 
 /* ---------- Responsive (Tablet+) ---------- */
