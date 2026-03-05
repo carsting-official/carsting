@@ -23,6 +23,7 @@ ALTER TABLE public.owners ADD COLUMN IF NOT EXISTS car_genre TEXT;
 ALTER TABLE public.owners ADD COLUMN IF NOT EXISTS car_color TEXT;
 ALTER TABLE public.owners ADD COLUMN IF NOT EXISTS instagram_id TEXT;
 ALTER TABLE public.owners ADD COLUMN IF NOT EXISTS custom_features TEXT;
+ALTER TABLE public.owners ADD COLUMN IF NOT EXISTS consent_sns BOOLEAN DEFAULT false;
 
 -- RLS (Row Level Security) の設定
 ALTER TABLE public.owners ENABLE ROW LEVEL SECURITY;
