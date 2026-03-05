@@ -298,15 +298,16 @@
                 <p class="cta-description">撮影のイメージをお伝えいただければ、<br>最適な車両をご提案いたします。初回相談は無料です。</p>
 
                 <form class="reg-form" id="btob-contact-form" novalidate>
-                    <p class="form-title">映像制作会社お問い合わせフォーム</p>
+                    <p class="form-title">お問い合わせフォーム</p>
 
                     <div class="form-group">
-                        <label class="form-label" for="company-name">会社名・屋号<span class="required">*</span></label>
+                        <label class="form-label" for="company-name">会社名・屋号（個人の場合はお名前）<span
+                                class="required">*</span></label>
                         <input type="text" class="form-input" id="company-name" name="company_name"
-                            placeholder="株式会社○○ / ○○プロダクション" required>
+                            placeholder="株式会社○○ / ○○プロダクション / 山田太郎" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;" id="contact-name-group">
                         <label class="form-label" for="contact-name">ご担当者名<span class="required">*</span></label>
                         <input type="text" class="form-input" id="contact-name" name="contact_name" placeholder="山田 太郎"
                             required>
