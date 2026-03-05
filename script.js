@@ -302,7 +302,7 @@ function initFormValidation() {
             instagram_id: instagramId ? instagramId.value.trim() : null,
             custom_features: customFeatures ? customFeatures.value.trim() : null,
             car_photo_url: carPhotoUrl,
-            consent_sns: form.querySelector('#consent-sns') ? form.querySelector('#consent-sns').checked : false
+            consent_sns: form.querySelector('#consent-terms') ? form.querySelector('#consent-terms').checked : false
           }
         ]);
 
