@@ -131,13 +131,41 @@
     background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
 }
 
+/* ---------- Marquee Animation ---------- */
+@keyframes scrollGallery {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7 - 16px * 7));
+        /* card width * num items + gap * num items */
+    }
+}
+
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0 40px;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
 .gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 16px;
+    width: max-content;
+    animation: scrollGallery 40s linear infinite;
+}
+
+.gallery-grid:hover {
+    animation-play-state: paused;
 }
 
 .gallery-card {
+    flex: 0 0 250px;
+    width: 250px;
     background: var(--bg-glass);
     border: var(--border-subtle);
     border-radius: var(--radius-md);
