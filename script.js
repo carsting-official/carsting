@@ -193,11 +193,20 @@ function initFormValidation() {
     form.querySelectorAll('.form-input').forEach((input) => {
       input.classList.remove('error');
     });
+    const uploadArea = form.querySelector('.file-upload-area');
+    if (uploadArea) {
+      uploadArea.style.borderColor = '';
+      uploadArea.style.backgroundColor = '';
+    }
 
     // Validate required fields
     const name = form.querySelector('#owner-name');
     const contact = form.querySelector('#owner-contact');
     const carModel = form.querySelector('#car-model');
+    const carGenre = form.querySelector('#car-genre');
+    const carColor = form.querySelector('#car-color');
+    const customFeatures = form.querySelector('#custom-features');
+    const instagramId = form.querySelector('#instagram-id');
     const fileInput = form.querySelector('#car-photo');
 
     if (name && !name.value.trim()) {
@@ -210,6 +219,22 @@ function initFormValidation() {
     }
     if (carModel && !carModel.value.trim()) {
       carModel.classList.add('error');
+      isValid = false;
+    }
+    if (carGenre && !carGenre.value.trim()) {
+      carGenre.classList.add('error');
+      isValid = false;
+    }
+    if (carColor && !carColor.value.trim()) {
+      carColor.classList.add('error');
+      isValid = false;
+    }
+    if (fileInput && fileInput.files.length === 0) {
+      if (uploadArea) {
+        uploadArea.style.borderColor = 'var(--error)';
+        uploadArea.style.backgroundColor = 'rgba(255, 68, 68, 0.05)';
+      }
+      alert('愛車の写真を1枚アップロードしてください。');
       isValid = false;
     }
 
@@ -262,6 +287,10 @@ function initFormValidation() {
             name: name.value.trim(),
             contact: contact.value.trim(),
             car_model: carModel.value.trim(),
+            car_genre: carGenre ? carGenre.value.trim() : null,
+            car_color: carColor ? carColor.value.trim() : null,
+            instagram_id: instagramId ? instagramId.value.trim() : null,
+            custom_features: customFeatures ? customFeatures.value.trim() : null,
             car_photo_url: carPhotoUrl
           }
         ]);
