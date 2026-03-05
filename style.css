@@ -1025,9 +1025,23 @@ a:hover {
 
 /* ---------- Responsive (Mobile < 640px adjustments) ---------- */
 @media (max-width: 639px) {
-  .header-nav {
+  .logo {
     display: none;
-    /* Hide top nav links on small screens to prevent squishing */
+    /* Hide logo on small screens; nav links serve as navigation */
+  }
+
+  .header-nav-link {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .header-cta {
+    font-size: 0.7rem;
+    padding: 7px 14px;
+  }
+
+  .sp-hide {
+    display: none;
   }
 }
 
