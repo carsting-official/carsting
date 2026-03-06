@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFileUpload();
   initFormValidation();
   initSmoothScroll();
+  initGalleryScroll();
 });
 
 /* ---------- Header Scroll Effect ---------- */
@@ -354,6 +355,125 @@ function initFormValidation() {
         document.body.style.overflow = '';
       }
     });
+  }
+}
+
+/* ---------- FAQ Accordion ---------- */
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach((i) => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
+}
+
+/* ---------- Gallery Drag to Scroll ---------- */
+function initGalleryScroll() {
+  const gallery = document.querySelector('.gallery-grid');
+  if (!gallery) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  gallery.addEventListener('mousedown', (e) => {
+    isDown = true;
+    gallery.style.cursor = 'grabbing';
+    // Pause CSS animation when interacting
+    gallery.style.animationPlayState = 'paused';
+    startX = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+  });
+
+  gallery.addEventListener('mouseleave', () => {
+    isDown = false;
+    gallery.style.cursor = 'grab';
+    gallery.style.animationPlayState = 'running';
+  });
+
+  gallery.addEventListener('mouseup', () => {
+    isDown = false;
+    gallery.style.cursor = 'grab';
+    gallery.style.animationPlayState = 'running';
+  });
+
+  gallery.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - gallery.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll-fast multiplier
+    gallery.scrollLeft = scrollLeft - walk;
+  });
+
+  // Set initial cursor state
+  gallery.style.cursor = 'grab';
+}
+
+/* ---------- File Upload (Owner Form) ---------- */
+function initFileUpload() {
+  const fileInput = document.getElementById('car-photo');
+  const uploadArea = document.querySelector('.file-upload-area');
+  const fileNameEl = document.querySelector('.file-name');
+  const fileInfoEl = document.querySelector('.file-info');
+
+  if (!fileInput || !uploadArea || !fileNameEl || !fileInfoEl) return;
+
+  // Handle drag and drop
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, () => uploadArea.classList.add('highlight'), false);
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, () => uploadArea.classList.remove('highlight'), false);
+  });
+
+  uploadArea.addEventListener('drop', handleDrop, false);
+
+  function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    fileInput.files = files; // Assign dropped files to the input
+    handleFiles(files);
+  }
+
+  // Handle file selection via input click
+  fileInput.addEventListener('change', (e) => {
+    handleFiles(e.target.files);
+  });
+
+  function handleFiles(files) {
+    if (files.length > 0) {
+      const file = files[0];
+      fileNameEl.textContent = file.name;
+      fileInfoEl.style.display = 'block';
+      uploadArea.classList.add('has-file');
+      uploadArea.style.borderColor = ''; // Reset error styling
+      uploadArea.style.backgroundColor = '';
+    } else {
+      fileNameEl.textContent = '';
+      fileInfoEl.style.display = 'none';
+      uploadArea.classList.remove('has-file');
+    }
+  }
+
+  // Initial check if a file is already selected (e.g., after form reset)
+  if (fileInput.files.length > 0) {
+    handleFiles(fileInput.files);
   }
 }
 

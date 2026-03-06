@@ -100,7 +100,6 @@
 
 .gallery-wrapper {
     width: 100%;
-    overflow: hidden;
     position: relative;
     padding: 20px 0 40px;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -111,7 +110,25 @@
     display: flex;
     gap: 16px;
     width: max-content;
+    padding: 0 10vw;
     animation: scrollGallery 40s linear infinite;
+
+    /* Touch swipe support */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.gallery-grid::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .gallery-grid:hover {
@@ -126,6 +143,9 @@
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: border-color var(--transition-base), transform var(--transition-fast);
+
+    /* Scroll snap points */
+    scroll-snap-align: center;
 }
 
 .gallery-card:hover {
